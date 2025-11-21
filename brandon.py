@@ -26,9 +26,10 @@ vehicles = r.post (
     data = {"routeKeys": routes.keys ()}
 ).json ()
 
-status = {}
+status, count = {}, 0
 for i in vehicles:
     for j in i ["vehiclesByDirections"]:
         for k in j ["vehicles"]:
             status [int (k ["name"])] = routes [i ["routeKey"]]
-print ("Bus\t\tRoute\n" + "\n".join (f'{i}\t\t{status.get (i, "N/A")}' if type (i) is not str else i for i in bus_ids))
+            count += 1
+print (f"Count: {count}\nBus\t\tRoute\n" + "\n".join (f'{i}\t\t{status.get (i, "N/A")}' if type (i) is not str else i for i in bus_ids))
