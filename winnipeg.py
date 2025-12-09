@@ -15,8 +15,6 @@ bus_ids = [
     980
 ]
 
-# bus_ids = list (range (570, 600))
-
 status = {}
 def check_bus (bus_id):
     global status
