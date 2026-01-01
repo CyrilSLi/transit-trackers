@@ -31,6 +31,6 @@ for trip in trip_runs:
 
 with open (os.path.join (os.path.dirname (__file__), "winnipeg.py")) as f:
     file = f.read ()
-file = re.sub (r"(trip_runs ?= ?).+([\r\n])", f"\\g<1>{json.dumps (trip_runs, separators = (",", ":"), sort_keys = True)}\\g<2>", file)
+file = re.sub (r"(trip_runs ?= ?){[\S\s]+?}", "\\g<1>" + json.dumps (trip_runs, separators = (",\n", ":"), sort_keys = True), file)
 with open (os.path.join (os.path.dirname (__file__), "winnipeg.py"), "w") as f:
     f.write (file)
