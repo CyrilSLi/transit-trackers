@@ -80,7 +80,7 @@ def main ():
             NIS_bulk.append (str (i))
             continue
         elif len (NIS_bulk) > 1:
-            print (f"\t\t{NIS_text}: " + " ".join (NIS_bulk))
+            print (f'"{NIS_text}: {" ".join (NIS_bulk)}"')
         elif len (NIS_bulk) == 1:
             print (f"{NIS_bulk [0]}\t\t{NIS_text}")
         NIS_bulk = []
