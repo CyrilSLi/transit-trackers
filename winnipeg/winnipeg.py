@@ -32,7 +32,10 @@ service_ids = { # TODO: determine actual service IDs
 # Compress a HH:mm:ss time to 3 chars
 def compress_time (time):
     global base64_chars
-    return "".join (base64_chars [int (i)] for i in time.split (":"))
+    hour, minute, second = map (int, time.split (":"))
+    if hour <= 3: # Previous service day
+        hour += 24
+    return "".join (base64_chars [i] for i in (hour, minute, second))
 def uncompress_time (compressed):
     global base64_chars
     return ":".join (f"{base64_chars.index (i):02}" for i in compressed)
