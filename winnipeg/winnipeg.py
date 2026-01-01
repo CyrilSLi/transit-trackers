@@ -55,7 +55,7 @@ def check_bus (bus_id, service_id):
                 status [bus_id] = resp ["route"] ["id"] + " (Unknown run)"
             else:
                 run, _, service_end = trip_runs [trip_key].rpartition (" ")
-                status [bus_id] = resp ["route"] ["id"] + f" (Run {run} ending {uncompress_time (service_end)})"
+                status [bus_id] = resp ["route"] ["id"] + f" ({run}, end {uncompress_time (service_end)})"
     except Exception as e:
         status [bus_id] = "Error: " + str (e)
     print ("*", end = "", flush = True)
