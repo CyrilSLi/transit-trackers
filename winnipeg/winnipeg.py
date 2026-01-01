@@ -11,8 +11,12 @@ bus_ids = [
     # 570, 573, 574, 575, 576, 578, 580, 581, 583, 584, 585, 587, 589, 591, 593, 595, 596, 599,
     "--- Photographed 500s ---",
     571, 572, 577, 579, 582, 586, 592, 594, 597,
-    "--- 900s ---",
-    930, 931, 933, 935, 938, 947, 948, 949,
+    "--- 900s NOT PHOTOGRAPHED ---",
+    930, 931, 933, 935, 949,
+    "--- Photographed 900s ---",
+    934, 938, 940, 945, 947, 948,
+    # "--- 900s Retired? ---",
+    # 936, 937, 939, 941, 942, 943, 944, 946,
     "--- Pride ---",
     980
 ]
@@ -54,7 +58,7 @@ def check_bus (bus_id, service_id):
 
 def main ():
     service_name = r.get ("https://winnipegtransit.com/api/v2/app_info").json () ["schedule_status"] ["value"].lower ()
-    service_id = service_ids.get (service_name)
+    service_id = service_ids [service_name]
     print (f"Service {service_id}; All service IDs: {service_ids}")
 
     threads = []
