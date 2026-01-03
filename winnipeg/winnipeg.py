@@ -1,4 +1,5 @@
 import requests as r, time, threading
+from datetime import datetime
 
 bus_ids = [
     "--- XHE40 & XHE60 ---",
@@ -23,11 +24,6 @@ bus_ids = [
 
 base64_chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_"
 NIS_text = "Not in service"
-service_ids = { # TODO: determine actual service IDs
-    "regular": 1,
-    "saturday": 2,
-    "sunday": 3
-}
 
 # Compress a HH:mm:ss time to 3 chars
 def compress_time (time):
@@ -61,9 +57,15 @@ def check_bus (bus_id, service_id):
     print ("*", end = "", flush = True)
 
 def main ():
-    service_name = r.get ("https://winnipegtransit.com/api/v2/app_info").json () ["schedule_status"] ["value"].lower ()
-    service_id = service_ids [service_name]
-    print (f"Service {service_id}; All service IDs: {service_ids}")
+    date = datetime.today ().strftime ("%Y-%m-%d")
+    for i in r.get ("https://winnipegtransit.com/api/v2/app_info").json () ["alternate_services"]:
+        if i ["date"] == date:
+            service_id = { # TODO: Add other service IDs as they appear
+                "sunday": 3
+            } [i ["service_type"].lower ()]
+            break
+    else:
+        service_id = max (0, datetime.today ().weekday () - 4) + 1 # Mon-Fri: 1, Sat: 2, Sun: 3
 
     threads = []
     for i in bus_ids:
