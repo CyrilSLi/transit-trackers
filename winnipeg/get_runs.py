@@ -21,7 +21,7 @@ with open (os.path.join (sys.argv [1], "trips.txt")) as f:
         if row ["trip_id"] not in start_end_times:
             continue
         start_time, end_time = start_end_times [row ["trip_id"]] [0], start_end_times [row ["trip_id"]] [2]
-        trip_runs [f'{row ["service_id"]}{row ["route_id"]}{compress_time (start_time)}{compress_time (end_time)}'] = row ["block_id"]
+        trip_runs [f'{row ["service_id"]}{row ["route_id"]}{compress_time (start_time, end_time)}'] = row ["block_id"]
         run_end_time = end_times.setdefault (row ["block_id"], "0")
         if run_end_time < end_time:
             end_times [row ["block_id"]] = end_time
