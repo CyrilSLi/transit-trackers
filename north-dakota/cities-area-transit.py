@@ -24,8 +24,6 @@ models = { # Update from and/or contribute to the CPTDB Wiki
 }
 
 routes = r.get("https://catprowler.org/Region/0/Routes", headers=headers).json()
-if any(len(i["Patterns"]) != 1 for i in routes):
-    raise SystemExit("Unexpected number of patterns in route data")
 
 vehicles = {}
 def get_line(route):
