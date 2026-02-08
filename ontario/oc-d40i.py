@@ -1,7 +1,7 @@
 from dotenv import load_dotenv
 from google.transit import gtfs_realtime_pb2
 import os, requests
-os
+
 load_dotenv()
 API_KEY = os.getenv("OC_TRANSPO_API_KEY")
 
