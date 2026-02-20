@@ -32,5 +32,5 @@ for entity in feed.entity:
        (vehicle_id >= 6351 and vehicle_id <= 6403)): # NFI D60LF
         statuses.append((entity.vehicle.trip.route_id or "N/A", vehicle_id, entity.vehicle.position.latitude, entity.vehicle.position.longitude, years.get(vehicle_id, "N/A")))
 
-statuses.sort()
+statuses.sort(key=lambda x: (x[4], x[1]))
 print("Bus     Year    Route   Coordinates\n" + "\n".join(f"{str(i[1]).ljust(8)}{i[4].ljust(8)}{i[0].ljust(8)}({i[2]}, {i[3]})" for i in statuses))
