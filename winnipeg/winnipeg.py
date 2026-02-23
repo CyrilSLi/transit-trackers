@@ -11,16 +11,16 @@ bus_ids = [
     "--- Photographed 500s ---",
     571, 572, 577, 579, 582, 586, 588, 592, 594, 597,
     "--- Photographed 900s ---",
-    930, 931, 934, 935, 938, 940, 945, 947, 948, 949,
+    930, 931, 933, 934, 935, 938, 940, 945, 947, 948, 949,
     # "--- 900s Retired? ---",
     # 936, 937, 939, 941, 942, 943, 944, 946,
     "--- Retired? ---",
-    230, 232, 590, 933,
-    "--- Pride ---",
-    980,
+    230, 232, 590,
+    "--- Pride & Old Livery ---",
+    980, 281
 ]
 
-base64_chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-_"
+base64_chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz|~" # Sortable by ASCII order
 NIS_text = "Not in service"
 
 # Compress a (H)H:mm:ss time to 3 chars (2 chars if all seconds are 00)
