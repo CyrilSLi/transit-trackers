@@ -6,7 +6,7 @@ Small Python scripts to track interesting transit vehicles by fleet number
 
 Use on any Python environment with the standard library and `requests`.
 
-**Note**: `oc-d40i-d60lf.py` requires the `gtfs-realtime-bindings` library and an OC Transpo GTFS-realtime API key.
+**Note**: `oc-d40i-d60lf.py` and `grt-electric.py` require the `gtfs-realtime-bindings` library and the former also requires an OC Transpo GTFS-realtime API key.
 
 These scripts are designed to run on mobile devices with a Python interpreter app ([example on iOS](https://apps.apple.com/app/id1397406775)) to track vehicles on the go.
 

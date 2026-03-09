@@ -1,9 +1,5 @@
-from dotenv import load_dotenv
 from google.transit import gtfs_realtime_pb2
 import os
-
-load_dotenv()
-API_KEY = os.getenv("OC_TRANSPO_API_KEY")
 
 # From https://stackoverflow.com/a/76217135
 from urllib3.util import create_urllib3_context
