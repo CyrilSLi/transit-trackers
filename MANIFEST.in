@@ -1,0 +1,4 @@
+include */*
+include demo.py
+exclude .dev/*
+exclude .git/*

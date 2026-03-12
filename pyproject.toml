@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+version = "0.1.0"
+name = "transit-trackers"
+description = "Small Python scripts to track interesting transit vehicles by fleet number"
+dynamic = ["dependencies"]
+authors = [
+    {name = "Cyril Li"}
+]
+readme = "README.md"
+license = "GPL-3.0-or-later"
+license-files = ["LICENSE"]
+
+[project.urls]
+Homepage = "https://cyrilsli.github.io/transit-trackers/"
+Repository = "https://github.com/CyrilSLi/transit-trackers.git"
+
+[project.scripts]
+transit-trackers = "demo:main"
+
+[tool.setuptools.dynamic]
+dependencies = {file = "ontario/requirements.txt"}
+
+[tool.setuptools]
+py-modules = []
