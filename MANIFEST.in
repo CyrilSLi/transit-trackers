@@ -1,2 +1,5 @@
 include */*
+exclude .dev/*
+exclude dist/*
+exclude src/transit_trackers.egg-info/*
 include demo.py
