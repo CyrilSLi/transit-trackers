@@ -102,7 +102,7 @@ def main ():
         else:
             print (f"{i}\t\t{status [i]}")
 
-if __name__ == "__main__":
+if True: # demo only
     trip_runs = {"12205O61":"1-120-1 JA",
 "12205W5j":"1-120-2 Ir",
 "12205Z6L":"1-120-3 JT",

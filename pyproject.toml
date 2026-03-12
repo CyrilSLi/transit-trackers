@@ -23,6 +23,3 @@ transit-trackers = "demo:main"
 
 [tool.setuptools.dynamic]
 dependencies = {file = "ontario/requirements.txt"}
-
-[tool.setuptools]
-py-modules = []

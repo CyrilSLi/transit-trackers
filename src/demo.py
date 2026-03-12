@@ -13,17 +13,12 @@ def main ():
         "washington/wenatchee.py: Link Transit buses (Wenatchee, WA)"
     ]
     while True:
-        try:
-            num = input ("\nNumber\tScript\n" + "\n".join (f"{j}\t{i}" for j, i in enumerate (scripts, 1)) + "\nEnter the number of the script to run: ").strip ()
-            if num in (str (i) for i in range (1, len (scripts) + 1)):
-                print ()
-                exec (open (os.path.join (os.path.dirname (__file__), scripts [int (num) - 1].split (":") [0])).read ())
-            else:
-                print ("Invalid selection, please try again.")
-        except (KeyboardInterrupt, EOFError):
-            print () # demo only
-        except Exception as e:
-            print (f"\nAn error occurred. {e.__class__.__name__}: {e}\n")
+        num = input ("\nNumber\tScript\n" + "\n".join (f"{j}\t{i}" for j, i in enumerate (scripts, 1)) + "\nEnter the number of the script to run: ").strip ()
+        if num in (str (i) for i in range (1, len (scripts) + 1)):
+            print ()
+            __import__ (scripts [int (num) - 1].split (":") [0].replace("/", ".").replace(".py", ""))
+        else:
+            print ("Invalid selection, please try again.")
 
 if __name__ == "__main__":
     main ()
